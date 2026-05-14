@@ -148,6 +148,54 @@
 
 ---
 
+## 🎛️ 完善的管理后台
+
+**总览 / 用户 / 套餐 / 计费配置 / 使用记录 / Key 管理一屏掌控**。源码版后台前端 Web 端原生适配,运营动作全部可视化。
+
+### 总览 · 实时数据
+
+用户数 / 套餐 / 计费项 + 最近 50 条电池流水(consume / refund 颜色区分,余额备注一栏明确扣费来源)。
+
+![后台总览](./screenshots/sp-admin-overview.png)
+
+### 用户管理
+
+按手机号 / 昵称搜索,余额 / 注册时间 / 最后活跃一表查询,支持调电池。
+
+![用户管理](./screenshots/sp-admin-users.png)
+
+### 充值套餐
+
+4 档套餐可视化编辑(基础电池 + 赠送标签 + 启用开关),后台直接调价,无需改代码。
+
+![充值套餐](./screenshots/sp-admin-packages.png)
+
+### 计费配置 · 火山真单价 + 加价倍率
+
+每个 `req_key`(智能视频 / 电商带货 / 各档位)独立配置:**火山真单价(元/秒)+ margin(加价倍率)**,自动算出用户每秒实扣电池。
+
+> 公式:用户实扣 = 单价 × 秒 × margin × 10(¥1 = 10 电池)
+
+![计费配置](./screenshots/sp-admin-billing.png)
+
+### 使用记录
+
+电池流水 / 视频生成 / 充值订单 / 发布任务 四类记录全部可查,带渠道 + 余额备注 + 时间。
+
+![使用记录](./screenshots/sp-admin-records.jpg)
+
+### 设置 / Key 管理
+
+- 网站基础设置(站名 / 副标题 / Logo / ICP / 客服微信 / Footer)
+- Logo 上传(自动写 `site_logo_url`)
+- 友情链接 JSON 配置
+- 高级 settings(`req_key_*` / `volc_*` / `feature_*` / `limit_*` / `site_*`)
+- 上游 `.env` 只读展示(`ALIYUN_ACCESS_KEY_*` 等,改 key 走 SSH 改 `/opt/sp/.env` + `pm2 restart`)
+
+![设置 / Key 管理](./screenshots/sp-admin-settings.jpg)
+
+---
+
 ## 💼 授权方案
 
 ![三档授权](./screenshots/sp-licensing.jpg)
